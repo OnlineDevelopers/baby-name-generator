@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby Name Generator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Baby Name Generator</h1>
-            <p>Find the perfect name for your baby!</p>
+            <p>Find beautiful names for your baby</p>
         </header>
+
+        <!-- Form Section -->
         <div class="form-section">
             <label for="religion">Select Religion:</label>
             <select id="religion">
@@ -20,16 +22,21 @@
                 <option value="muslim">Muslim</option>
                 <option value="christian">Christian</option>
             </select>
+
             <label for="gender">Select Gender:</label>
             <select id="gender">
                 <option value="all">All</option>
                 <option value="boy">Boy</option>
                 <option value="girl">Girl</option>
             </select>
-            <button id="generate-btn">Generate Names</button>
+
+            <button id="generate">Generate Names</button>
         </div>
-        <div class="output" id="output"></div>
+
+        <!-- Output Section -->
+        <div id="output" class="output"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
