@@ -22,7 +22,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     border-radius: 15px;
     padding: 40px;
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -106,13 +106,29 @@ button:hover {
     margin-bottom: 10px;
 }
 
-#result p {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #fff;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    margin-top: 10px;
-    letter-spacing: 1px;
+#name-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.name-box {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.name-box:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -129,6 +145,10 @@ button:hover {
     button {
         width: 80%;
     }
+
+    #name-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -140,7 +160,7 @@ button:hover {
         padding: 12px 30px;
     }
 
-    #result p {
-        font-size: 2rem;
+    #name-container {
+        grid-template-columns: 1fr; /* 1 column for very small screens */
     }
 }
