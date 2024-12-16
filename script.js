@@ -1,38 +1,26 @@
-const names = {
-    boy: [
-        "Aarav", "Vivaan", "Aditya", "Vihaan", "Arjun", "Sai", "Reyansh", "Ishaan", "Ayaan", "Krishna",
-        "Shaurya", "Rohan", "Aryan", "Kiaan", "Mohit", "Aman", "Ansh", "Raghav", "Lakshya", "Kunal", "Yash"
-    ],
-    girl: [
-        "Aadhya", "Ananya", "Ishita", "Saanvi", "Shruti", "Kavya", "Diya", "Aarya", "Meera", "Pooja",
-        "Riya", "Simran", "Tanya", "Aishwarya", "Shreya", "Nitya", "Radhika", "Avni", "Tanvi", "Madhavi", "Kriti"
-    ],
-    all: [
-        "Aarav", "Vivaan", "Aditya", "Vihaan", "Arjun", "Sai", "Reyansh", "Ishaan", "Ayaan", "Krishna",
-        "Aadhya", "Ananya", "Ishita", "Saanvi", "Shruti", "Kavya", "Diya", "Aarya", "Meera", "Pooja"
-    ]
-};
-
-function generateNames() {
-    const gender = document.getElementById("gender").value;
+document.getElementById("generate-btn").addEventListener("click", async () => {
     const religion = document.getElementById("religion").value;
-    let nameList = [];
+    const gender = document.getElementById("gender").value;
+    const output = document.getElementById("output");
 
-    if (religion === 'all') {
-        nameList = names[gender];
-    } else {
-        // Add more filtering logic based on religion if needed.
-        nameList = names[religion];
+    try {
+        const response = await fetch("names.json");
+        const names = await response.json();
+
+        const filteredNames = names.filter((name) => {
+            const religionMatch = religion === "all" || name.religion === religion;
+            const genderMatch = gender === "all" || name.gender === gender;
+            return religionMatch && genderMatch;
+        });
+
+        output.innerHTML = filteredNames
+            .map((name) => `<div class="name-box">${name.name}</div>`)
+            .join("");
+
+        if (filteredNames.length === 0) {
+            output.innerHTML = "<p>No names found for the selected criteria.</p>";
+        }
+    } catch (error) {
+        output.innerHTML = "<p>Error loading names. Please try again later.</p>";
     }
-
-    const nameContainer = document.getElementById("name-container");
-    nameContainer.innerHTML = ""; // Clear previous results
-
-    for (let i = 0; i < 20; i++) {
-        const name = nameList[i] || "Name Not Available"; // Fallback if less than 20 names are available
-        const nameBox = document.createElement("div");
-        nameBox.className = "name-box";
-        nameBox.textContent = name;
-        nameContainer.appendChild(nameBox);
-    }
-}
+});
