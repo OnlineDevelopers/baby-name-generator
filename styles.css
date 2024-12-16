@@ -1,108 +1,131 @@
-/* General body styling with a gradient background */
+/* General Body Styling */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #4FACFE, #00F2FE);
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom, #ffebee, #ffe0b2); /* Light gradient background */
     color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
 }
 
-/* Title styling */
-h1 {
+/* Main Container Styling */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    padding: 30px;
+    text-align: center;
+    overflow: hidden; /* Keep child elements contained */
+}
+
+/* Header Styling */
+header h1 {
+    color: #ff5722;
     font-size: 2.8rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 20px 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
-/* Dropdown and button container */
-select, button {
-    font-family: inherit;
-    padding: 12px 20px;
-    margin: 10px;
+header p {
     font-size: 1rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #777;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Form Section */
+.form-section {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 select {
-    background-color: #fff;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 90%;
+    margin: 10px auto;
+    font-size: 1rem;
     color: #555;
+    background: #f9f9f9;
     outline: none;
+    transition: all 0.3s ease;
 }
 
 select:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.05);
+    background: #f5f5f5;
+    border-color: #ccc;
 }
 
 button {
-    background: linear-gradient(90deg, #36D1DC, #5B86E5);
+    padding: 12px 25px;
+    background: #ff5722;
     color: #fff;
-    font-weight: 600;
-    text-transform: uppercase;
     border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
 }
 
 button:hover {
-    transform: translateY(-2px) scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: #e64a19;
+    transform: scale(1.05); /* Slightly grow on hover */
 }
 
-/* Container for names */
-#name-container {
+/* Name Output Section */
+.output {
+    margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
-    padding: 20px;
-    width: 90%;
-    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Individual name box */
-.name-box {
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.2rem;
+.output .name-box {
+    background: #f1f8e9;
+    border: 1px solid #dcedc8;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #4caf50;
     font-weight: bold;
-    color: #333;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.7);
-    transition: all 0.2s ease;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.name-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.9);
+.output .name-box:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive design for smaller devices */
+/* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
+    header h1 {
+        font-size: 2.2rem;
     }
 
-    button, select {
-        padding: 10px 15px;
+    header p {
         font-size: 0.9rem;
     }
 
-    #name-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    button {
+        font-size: 0.9rem;
     }
 
-    .name-box {
+    .output .name-box {
         font-size: 1rem;
-        padding: 15px;
     }
 }
