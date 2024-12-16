@@ -1,0 +1,14 @@
+{
+    "hindu": {
+        "boy": ["Aarav", "Vivaan", "Krish", "Arjun", "Rohan", "Aditya", "Siddharth", "Aryan", "Karan", "Rahul"],
+        "girl": ["Aanya", "Diya", "Ishita", "Meera", "Riya", "Sneha", "Priya", "Sanjana", "Radhika", "Ananya"]
+    },
+    "muslim": {
+        "boy": ["Ayaan", "Ibrahim", "Zayan", "Omar", "Ali", "Rehan", "Tariq", "Zaid", "Adil", "Arham"],
+        "girl": ["Ayesha", "Fatima", "Zara", "Noor", "Maryam", "Hina", "Saba", "Nida", "Amira", "Leena"]
+    },
+    "christian": {
+        "boy": ["Ethan", "Noah", "James", "Liam", "Lucas", "Caleb", "Nathan", "Aaron", "Elijah", "Gabriel"],
+        "girl": ["Emma", "Sophia", "Olivia", "Grace", "Lily", "Isabella", "Abigail", "Hannah", "Mia", "Charlotte"]
+    }
+}
