@@ -1,26 +1,66 @@
-document.getElementById("generate-btn").addEventListener("click", async () => {
-    const religion = document.getElementById("religion").value;
-    const gender = document.getElementById("gender").value;
-    const output = document.getElementById("output");
+const generateButton = document.getElementById("generate");
+const output = document.getElementById("output");
+let namesData = [];
 
-    try {
-        const response = await fetch("names.json");
-        const names = await response.json();
+// Load names.json
+fetch("names.json")
+    .then((response) => response.json())
+    .then((data) => {
+        namesData = data;
+        loadLikesFromStorage();
+    })
+    .catch((error) => console.error("Error loading names:", error));
 
-        const filteredNames = names.filter((name) => {
-            const religionMatch = religion === "all" || name.religion === religion;
-            const genderMatch = gender === "all" || name.gender === gender;
-            return religionMatch && genderMatch;
-        });
+// Function to Generate Names
+function generateNames() {
+    const selectedReligion = document.getElementById("religion").value;
+    const selectedGender = document.getElementById("gender").value;
 
-        output.innerHTML = filteredNames
-            .map((name) => `<div class="name-box">${name.name}</div>`)
-            .join("");
+    // Filter names based on religion and gender
+    const filteredNames = namesData.filter((item) => {
+        return (
+            (selectedReligion === "all" || item.religion === selectedReligion) &&
+            (selectedGender === "all" || item.gender === selectedGender)
+        );
+    });
 
-        if (filteredNames.length === 0) {
-            output.innerHTML = "<p>No names found for the selected criteria.</p>";
-        }
-    } catch (error) {
-        output.innerHTML = "<p>Error loading names. Please try again later.</p>";
-    }
-});
+    // Display names
+    output.innerHTML = "";
+    filteredNames.forEach((nameObj) => {
+        const nameCard = document.createElement("div");
+        nameCard.classList.add("name-card");
+        nameCard.innerHTML = `
+            <span>${nameObj.name}</span>
+            <div>
+                <span class="like-count" id="like-${nameObj.name}">${getLikeCount(
+            nameObj.name
+        )}</span>
+                <span class="like-button" onclick="incrementLike('${nameObj.name}')">❤️</span>
+            </div>
+        `;
+        output.appendChild(nameCard);
+    });
+}
+
+// Local Storage for Likes
+function getLikeCount(name) {
+    return localStorage.getItem(name) || 0;
+}
+
+function incrementLike(name) {
+    let currentCount = parseInt(localStorage.getItem(name)) || 0;
+    currentCount++;
+    localStorage.setItem(name, currentCount);
+    document.getElementById(`like-${name}`).innerText = currentCount;
+}
+
+// Load likes on page load
+function loadLikesFromStorage() {
+    const allNames = document.querySelectorAll(".like-count");
+    allNames.forEach((el) => {
+        const name = el.id.replace("like-", "");
+        el.innerText = getLikeCount(name);
+    });
+}
+
+generateButton.addEventListener("click", generateNames);
