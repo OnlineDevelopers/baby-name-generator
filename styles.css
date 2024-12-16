@@ -1,166 +1,109 @@
-/* Reset default styling for all elements */
-* {
+/* Apply a background gradient */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FFB6C1, #FF1493);
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Soft peach gradient */
-    color: #fff;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    text-align: center;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
-.container {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-header {
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 3rem;
-    color: #fff;
+/* Center the title with a stylish font */
+h1 {
+    font-size: 2.5em;
     font-weight: 700;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2rem;
     color: #fff;
-    margin-bottom: 25px;
-}
-
-.options {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-label {
-    font-size: 1.1rem;
-    color: #fff;
-    font-weight: 500;
-}
-
-select {
-    padding: 12px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    background-color: #fff;
-    color: #333;
-    width: 48%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-select:hover {
-    transform: scale(1.05);
-}
-
-button {
-    padding: 15px 40px;
-    background-color: #ff6200;
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
     margin-top: 20px;
-    width: 100%;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the button */
+button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: 600;
+    background-color: #FF1493;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 20px 0;
 }
 
 button:hover {
-    background-color: #ff4500;
-    transform: translateY(-5px);
+    background-color: #FF69B4;
+    transform: scale(1.1);
 }
 
-#result {
-    margin-top: 30px;
-}
-
-#result h2 {
-    font-size: 2rem;
-    color: #ff6200;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
+/* Make the name container flexible and centered */
 #name-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
     padding: 20px;
-    justify-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px 0;
 }
 
+/* Style for each name box */
 .name-box {
     background-color: #fff;
-    color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 1.2rem;
+    padding: 15px;
     text-align: center;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    overflow: hidden;
 }
 
 .name-box:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Style for the name text */
+.name-box p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Add a subtle gradient to name boxes */
+.name-box:nth-child(even) {
+    background: linear-gradient(135deg, #FFD700, #FF6347);
+}
+
+.name-box:nth-child(odd) {
+    background: linear-gradient(135deg, #FF6347, #FFD700);
+}
+
+/* Make the page responsive for mobile */
 @media (max-width: 768px) {
-    .options {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    select {
-        width: 80%;
-        margin-bottom: 15px;
+    h1 {
+        font-size: 2em;
     }
 
     button {
-        width: 80%;
+        padding: 12px 25px;
+        font-size: 1em;
     }
 
     #name-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 2.4rem;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    button {
-        padding: 12px 30px;
-    }
-
-    #name-container {
-        grid-template-columns: 1fr; /* 1 column for very small screens */
+    .name-box {
+        font-size: 1em;
+        padding: 12px;
     }
 }
