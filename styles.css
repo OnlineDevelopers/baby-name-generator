@@ -1,131 +1,96 @@
-/* General Body Styling */
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial, sans-serif';
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #ffebee, #ffe0b2);
+    background: linear-gradient(to bottom, #f8bbd0, #ffe0b2);
     color: #333;
 }
 
-/* Main Container Styling */
 .container {
-    max-width: 700px;
+    max-width: 800px;
     margin: 50px auto;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     text-align: center;
-    overflow: hidden;
 }
 
-/* Header Styling */
 header h1 {
-    color: #ff5722;
-    font-size: 2.8rem;
+    color: #e91e63;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
 }
 
 header p {
     font-size: 1rem;
     color: #777;
-    margin-bottom: 20px;
-    line-height: 1.6;
 }
 
 /* Form Section */
-.form-section {
-    margin: 20px 0;
-}
-
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin-top: 10px;
     font-weight: bold;
-    font-size: 1rem;
 }
 
-select {
-    padding: 12px 15px;
+select, button {
+    padding: 10px;
+    margin: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    width: 90%;
-    margin: 10px auto;
     font-size: 1rem;
-    color: #555;
-    background: #f9f9f9;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-select:hover {
-    background: #f5f5f5;
-    border-color: #ccc;
 }
 
 button {
-    padding: 12px 25px;
-    background: #ff5722;
+    background: #e91e63;
     color: #fff;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    margin-top: 15px;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background: #e64a19;
-    transform: scale(1.05);
+    background: #d81b60;
 }
 
-/* Name Output Section */
+/* Output Section */
 .output {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    gap: 10px;
 }
 
-.output .name-box {
-    background: #f1f8e9;
-    border: 1px solid #dcedc8;
+.name-card {
+    background: #fff3e0;
+    padding: 15px;
     border-radius: 10px;
-    padding: 10px 15px;
-    color: #4caf50;
-    font-weight: bold;
-    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 200px;
 }
 
-.output .name-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+.like-button {
+    font-size: 1.2rem;
+    color: #e91e63;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 10px;
+    transition: transform 0.3s;
 }
 
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
+.like-button:hover {
+    transform: scale(1.2);
+}
 
-    header p {
-        font-size: 0.9rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-    }
-
-    .output .name-box {
-        font-size: 1rem;
-    }
+.like-count {
+    font-size: 1rem;
+    color: #333;
 }
