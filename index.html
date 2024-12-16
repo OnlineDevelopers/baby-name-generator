@@ -1,33 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby Name Generator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-</body>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-    <header>
-        <h1>Baby Name Generator</h1>
-        <p>Select Gender and Religion, then click to generate names!</p>
-    </header>
-
-    <div class="options">
-        <div class="select-wrapper">
-            <label for="gender">Select Gender:</label>
-            <select id="gender">
-                <option value="boy">Boy</option>
-                <option value="girl">Girl</option>
-            </select>
-        </div>
-
-        <div class="select-wrapper">
+    <div class="container">
+        <header>
+            <h1>Baby Name Generator</h1>
+            <p>Find the perfect name for your baby!</p>
+        </header>
+        <div class="form-section">
             <label for="religion">Select Religion:</label>
             <select id="religion">
                 <option value="all">All</option>
@@ -35,18 +20,16 @@
                 <option value="muslim">Muslim</option>
                 <option value="christian">Christian</option>
             </select>
+            <label for="gender">Select Gender:</label>
+            <select id="gender">
+                <option value="all">All</option>
+                <option value="boy">Boy</option>
+                <option value="girl">Girl</option>
+            </select>
+            <button id="generate-btn">Generate Names</button>
         </div>
+        <div class="output" id="output"></div>
     </div>
-
-    <button onclick="generateNames()">Generate Names</button>
-
-    <div id="result">
-        <h2>Names</h2>
-        <div id="name-container"></div> <!-- This is where names will be displayed -->
-    </div>
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
